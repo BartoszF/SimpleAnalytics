@@ -1,13 +1,24 @@
 {
-    "name": "bartoszf/simple_analytics",
+    "name": "bartoszf/simple-analytics",
     "description": "Laravel package for implementing simple analytics",
     "type": "library",
+    "homepage": "https://github.com/BartoszF/SimpleAnalytics",
+    "keywords": [
+        "laravel",
+        "analytics",
+        "auth",
+        "eloquent"
+    ],
     "authors": [
         {
-            "name": "BartoszF",
-            "email": "felis.bartosz@gmail.com"
+            "name": "Bartosz Felis",
+            "email": "felis.bartosz@gmail.com",
+            "homepage": "https://github.com/BartoszF",
+            "role": "Everything"
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": "^5.6 || ^7.0"
+    }
 }
