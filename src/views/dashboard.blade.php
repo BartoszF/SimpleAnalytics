@@ -7,15 +7,19 @@
 <body>
 <canvas id="chart" width="400" height="100"></canvas>
 
-<table>
-    <tr>
-        <th>Route</th>
-        <th></th>
-    </tr>
-    <tr id="data">
+<div class="col-md-6 col-md-offset-3 table-responsive">
+    <h3>Top Routes</h3>
+    <table id="topRoutes" class="table" style="table-layout:fixed;">
+        <tr>
+            <th style="width:80%;">Route</th>
+            <th></th>
+        </tr>
+        <tr>
 
-    </tr>
-</table>
+        </tr>
+    </table>
+</div>
+
 <script>
     var ctx = document.getElementById("chart");
     var myChart = new Chart(ctx,{
@@ -26,9 +30,9 @@
                     label: '# of Requests',
                     data: [],
                     backgroundColor:
-                    [
-                        "rgba(30, 165, 255, 0.8)"
-                    ]
+                        [
+                            "rgba(30, 165, 255, 0.8)"
+                        ]
                 }
             ]
         },
@@ -64,17 +68,22 @@
             myChart.update();
         }.bind(this),null);
 
-        request("/analytics/getTopRoutes",function(data)
+        request("/analytics/getTopRoutes","",function(data)
         {
+            jQuery("#topRoutes").html("<tr>\n" +
+                "        <th style='width:90%;'>Route</th>\n" +
+                "        <th></th>\n" +
+                "    </tr>");
+
             for(var item = 0; item < data.length; item++)
             {
                 var row = data[item];
                 var route = row["route"];
                 var num = row["num"];
 
-                var th = "<tr><th>"+route+"</th><th>"+num+"</th><tr>"
+                var th = "<tr><td  style=\"word-wrap: break-word\">"+route+"</td><td>"+num+"</td></tr>";
 
-                jQuery("tr#data").append(th);
+                jQuery("#topRoutes").append(th);
             }
         },null)
     }
