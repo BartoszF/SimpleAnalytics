@@ -1,0 +1,13 @@
+{
+    "name": "bartoszf/simple_analytics",
+    "description": "Laravel package for implementing simple analytics",
+    "type": "library",
+    "authors": [
+        {
+            "name": "BartoszF",
+            "email": "felis.bartosz@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
