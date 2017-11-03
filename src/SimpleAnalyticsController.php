@@ -15,6 +15,18 @@ class SimpleAnalyticsController extends Controller
         echo view("simple_analytics::dashboard");
     }
 
+    public function getTopRoutes(Request $request,$num = 10)
+    {
+        $routes = DB::table("simple_analytics_request_data")
+                    ->select("route",DB::raw("count(*) as num"))
+                    ->groupBy("route")
+                    ->orderBy('num','desc')
+                    ->take($num)
+                    ->get();
+
+        return $routes;
+    }
+
     public function getChartData(Request $request)
     {
         $timestamp = $request->input("timestamp");

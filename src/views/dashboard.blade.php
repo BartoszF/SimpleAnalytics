@@ -7,7 +7,15 @@
 <body>
 <canvas id="chart" width="400" height="100"></canvas>
 
+<table>
+    <tr>
+        <th>Route</th>
+        <th></th>
+    </tr>
+    <tr id="data">
 
+    </tr>
+</table>
 <script>
     var ctx = document.getElementById("chart");
     var myChart = new Chart(ctx,{
@@ -55,6 +63,20 @@
             });
             myChart.update();
         }.bind(this),null);
+
+        request("/analytics/getTopRoutes",function(data)
+        {
+            for(var item = 0; item < data.length; item++)
+            {
+                var row = data[item];
+                var route = row["route"];
+                var num = row["num"];
+
+                var th = "<tr><th>"+route+"</th><th>"+num+"</th><tr>"
+
+                jQuery("tr#data").append(th);
+            }
+        },null)
     }
 
     function minuteUpdate()
