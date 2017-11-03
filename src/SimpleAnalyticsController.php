@@ -23,7 +23,7 @@ class SimpleAnalyticsController extends Controller
         $date = Carbon::parse($timestamp);
         $old_date = Carbon::parse($timestamp)->subSeconds($seconds);
 
-        $routes = DB::table("user_report_detail")->where([["created_at",">=",$old_date],["created_at","<=",$date]])->get();
+        $routes = DB::table("simple_analytics_request_data")->where([["created_at",">=",$old_date],["created_at","<=",$date]])->get();
         $routes = count($routes);
 
         return $routes;

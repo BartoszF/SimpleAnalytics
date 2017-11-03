@@ -24,16 +24,13 @@ class ReportUserRouteMiddleware
         $method = $request->getMethod();
         $date = Carbon::now();
 
-        if($user != null) {
+        if($user != null)
+        {
 
-            if(strpos($route, 'analytics') != false)
-            {
-                return $next($request);
-            }
             DB::beginTransaction();
             try {
                 $data = array("user_id" => $user->id, "route" => $route, "method" => $method, "created_at" => $date);
-                DB::table("user_report_detail")->insert($data);
+                DB::table("simple_analytics_request_data")->insert($data);
             } catch (Exception $e) {
                 DB::rollBack();
 

@@ -43,7 +43,7 @@ BartoszF\SimpleAnalytics\AnalyticsServiceProvider::class,
 ],
 ```
 
-3. Publish the package migrations to your application and run these with `php artisan migrate.
+3. Publish the package migrations to your application and run these with `php artisan migrate`.
 
 ```
 $ php artisan vendor:publish --provider="BartoszF\SimpleAnalytics\AnalyticsServiceProvider"
