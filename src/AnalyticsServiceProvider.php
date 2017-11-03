@@ -13,7 +13,11 @@ class AnalyticsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadViewsFrom(__DIR__.'/views', 'simple_analytics');
+
+        $this->publishes([
+            __DIR__.'/views' => base_path('resources/views/vendor/simple_analytics'),
+        ]);
     }
 
     /**
@@ -23,6 +27,7 @@ class AnalyticsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        include __DIR__.'/routes.php';
+        $this->app->make('BartoszF\SimpleAnalytics\SimpleAnalyticsController');
     }
 }

@@ -16,6 +16,7 @@ Laravel package for implementing simple analytics
 # <a name="requirements"></a>Requirements
 
 * This package requires PHP 5.6+
+* As for now, you need Auth facade with user.
 
 # <a name="getting-started"></a>Getting Started
 
@@ -34,10 +35,10 @@ Laravel package for implementing simple analytics
 ```php
 'providers' => [
 
-'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-'Illuminate\Auth\AuthServiceProvider',
+Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
+Illuminate\Auth\AuthServiceProvider::class,
 ...
-'BartoszF\SimpleAnalytics\AnalyticsServiceProvider',
+BartoszF\SimpleAnalytics\AnalyticsServiceProvider::class,
 
 ],
 ```
@@ -54,12 +55,15 @@ $ php artisan vendor:publish --provider="BartoszF\SimpleAnalytics\AnalyticsServi
 protected $routeMiddleware = [
 
 ....
-'analyze' => BartoszF\SimpleAnalytics\Middleware\ReportUserRoute::class,
+'analytics' => BartoszF\SimpleAnalytics\Middleware\ReportUserRouteMiddleware::class,
 
 ];
 ```
 
-```
+5. Adjust view as you wish (probably extend it with your app layout)
+
+6. Add 'analytics' middleware to your routes from wich you want to get details.
+
 
 # <a name="contribution-guidelines"></a>Contribution Guidelines
 
