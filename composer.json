@@ -2,6 +2,7 @@
     "name": "bartoszf/simple-analytics",
     "description": "Laravel package for implementing simple analytics",
     "type": "library",
+    "license": "MIT",
     "homepage": "https://github.com/BartoszF/SimpleAnalytics",
     "keywords": [
         "laravel",

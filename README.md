@@ -62,7 +62,7 @@ protected $routeMiddleware = [
 
 5. Adjust view as you wish (probably extend it with your app layout)
 
-6. Add 'analytics' middleware to your routes from wich you want to get details.
+6. Add `analytics` middleware to your routes from wich you want to get details.
 
 
 # <a name="contribution-guidelines"></a>Contribution Guidelines
