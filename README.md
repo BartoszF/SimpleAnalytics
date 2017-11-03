@@ -25,7 +25,7 @@ Laravel package for implementing simple analytics
 ```
 "require": {
 ...
-"BartoszF/SimpleAnalytics": "~0.8",
+"bartoszf/simple-analytics": "~0.8",
 ...
 },
 ```
